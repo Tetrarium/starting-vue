@@ -1,4 +1,8 @@
-# .
+[![Deploy Jekyll with GitHub Pages dependencies preinstalled](https://github.com/Tetrarium/starting-vue/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/Tetrarium/starting-vue/actions/workflows/jekyll-gh-pages.yml)
+
+# First Project on Vue
+
+## Deploy: [Here](https://tetrarium.github.io/starting-vue/)
 
 This template should help get you started developing with Vue 3 in Vite.
 
