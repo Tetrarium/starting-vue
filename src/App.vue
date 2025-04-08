@@ -1,37 +1,30 @@
 <script lang="ts" setup>
-import { computed, onBeforeUnmount, ref, watch } from 'vue'
-
-const date = ref(new Date())
-
-const intervalId = setInterval(() => {
-  date.value = new Date()
-}, 500)
-// throw new Error('test')
-
-const time = computed(() => {
-  return date.value.toLocaleTimeString()
-})
-
-const seconds = computed(() => {
-  return date.value.getSeconds()
-})
-
-// При таком варианте отрабатывает один раз
-// а не при каждой отработке интервала
-watch(seconds, () => {
-  if (seconds.value % 5 === 0) {
-    throw new Error('time error')
-  }
-})
-
-onBeforeUnmount(() => {
-  clearInterval(intervalId)
-})
+import DigitalClock from './components/DigitalClock.vue'
+import AnalogClock from './components/AnalogClock.vue'
 </script>
 
 <template>
-  <h1>App</h1>
-  <div>
-    Time: <span>{{ time }}</span>
-  </div>
+  <header class="header">
+    <h1 class="header__title">App</h1>
+  </header>
+  <main class="main">
+    <DigitalClock />
+    <AnalogClock />
+  </main>
 </template>
+
+<style scoped lang="scss">
+.header {
+  &__title {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+</style>
