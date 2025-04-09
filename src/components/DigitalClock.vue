@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { computed } from 'vue'
+import { useNow } from '../main'
 
-const time = ref(new Date())
-
-const updateTime = () => {
-  time.value = new Date()
-}
+const time = useNow()
 
 const formatPartToTwoDigits = (part: number) => {
   return part.toString().padStart(2, '0')
@@ -21,12 +18,6 @@ const minutes = computed(() => {
 
 const seconds = computed(() => {
   return formatPartToTwoDigits(time.value.getSeconds())
-})
-
-const intervalId = setInterval(updateTime, 500)
-
-onBeforeUnmount(() => {
-  clearInterval(intervalId)
 })
 </script>
 

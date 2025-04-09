@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { computed, onBeforeUnmount } from 'vue'
+import { useNow } from '../main'
 
-const time = ref(new Date())
+const time = useNow()
 
 const updateTime = () => {
   time.value = new Date()
