@@ -7,6 +7,9 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // https://vite.dev/config/
 export default defineConfig({
   base: 'https://tetrarium.github.io/starting-vue/',
+  define: {
+    __VUE_PROD_DEVTOOLS__: true,
+  },
   plugins: [
     vue(),
     vueDevTools(),
