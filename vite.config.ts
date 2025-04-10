@@ -5,8 +5,8 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: 'https://tetrarium.github.io/starting-vue/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'development' ? '/' :  'https://tetrarium.github.io/starting-vue/',
   define: {
     __VUE_PROD_DEVTOOLS__: true,
   },
@@ -19,4 +19,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-})
+}))
